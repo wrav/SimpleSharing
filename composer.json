@@ -1,0 +1,58 @@
+{
+    "name": "wrav/simplesharing",
+    "description": "Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "simplesharing",
+        "instagram",
+        "twitter",
+        "facebook"
+    ],
+    "support": {
+        "docs": "https://github.com/wrav/simple-sharing/blob/master/README.md",
+        "issues": "https://github.com/wrav/simple-sharing/issues"
+    },
+    "support": {
+        "email": "reganlawton92@gmail.com",
+        "docs": "https://github.com/wrav/simple-sharing/blob/master/README.md",
+        "issues": "https://github.com/wrav/simple-sharing/issues",
+        "source": "https://github.com/wrav/simple-sharing",
+        "rss": "https://github.com/wrav/simple-sharing/commits/master.atom"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "reganlawton",
+            "homepage": "https://github.com/reganlawton"
+        },
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.23"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "wrav\\simplesharing\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Simple Sharing",
+        "description": "Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.",
+        "handle": "simple-sharing",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/wrav/simplesharing/master/CHANGELOG.md",
+        "class": "wrav\\simplesharing\\SimpleSharing"
+    }
+}
