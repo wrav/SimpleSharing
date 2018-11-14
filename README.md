@@ -22,7 +22,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require wrav/simple-sharing
+        composer require wrav/simplesharing
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for SimpleSharing.
 
