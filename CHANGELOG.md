@@ -1,5 +1,10 @@
 # Simple Sharing Changelog
 
+## 1.0.2 - 2019-01-08
+
+### Updated
+- Allowing support for CraftCMS v3.1
+
 ## 1.0.1 - 2018-12-07
 
 ### Updated
