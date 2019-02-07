@@ -31,10 +31,10 @@ To install the plugin, follow these instructions.
 Your able to generate share links on the fly in a template as followed.
 
 ```twig
-{{ craft.simplesharing.link(url, 'facebook) }}
-{{ craft.simplesharing.link(url, 'twitter) }}
-{{ craft.simplesharing.link(url, 'linkedin) }}
-{{ craft.simplesharing.link(url, 'google) }}
+{{ craft.simplesharing.link(url, 'facebook') }}
+{{ craft.simplesharing.link(url, 'twitter') }}
+{{ craft.simplesharing.link(url, 'linkedin') }}
+{{ craft.simplesharing.link(url, 'google') }}
 ```
 
 ## Credits
