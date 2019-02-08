@@ -5,8 +5,6 @@
 Simple Sharing is a CraftCMS plugin that generates social media share links within 
 the Craft CP page, allowing you to quickly and easily share entries.
 
-[![Beerpay](https://beerpay.io/wrav/SimpleSharing/badge.svg)](https://beerpay.io/wrav/SimpleSharing)
-
 ## Requirements
 
 This plugin requires Craft CMS 3.0.0-beta.23 or later.
@@ -50,3 +48,8 @@ Changes can be viewed [here](https://github.com/wrav/simple-sharing/blob/master/
 ## Support
 
 Get in touch via email or by [creating a Github issue](/wrav/simple-sharing/issues)
+
+## Show your Support
+This is licensed under the MIT license meaning it will always be free. If you like the plugin, please feel free to show your support and buy me a :beers:. 
+
+[![Beerpay](https://beerpay.io/wrav/SimpleSharing/badge.svg)](https://beerpay.io/wrav/SimpleSharing)
