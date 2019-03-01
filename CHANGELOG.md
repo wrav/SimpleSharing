@@ -1,5 +1,10 @@
 # Simple Sharing Changelog
 
+## 1.0.3 - 2019-03-01
+
+### Updated
+- Updated README docs
+
 ## 1.0.2 - 2019-01-08
 
 ### Updated
