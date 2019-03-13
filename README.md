@@ -43,11 +43,11 @@ Original built while at working at [HutSix](https://hutsix.com.au/) I've since b
 
 ## Change Log
 
-Changes can be viewed [here](https://github.com/wrav/simple-sharing/blob/master/CHANGELOG.md)
+Changes can be viewed [here](https://github.com/wrav/SimpleSharing/blob/master/CHANGELOG.md)
 
 ## Support
 
-Get in touch via email or by [creating a Github issue](/wrav/simple-sharing/issues)
+Get in touch via email or by [creating a Github issue](/wrav/SimpleSharing/issues)
 
 ## Show your Support
 This is licensed under the MIT license meaning it will always be free. If you like the plugin, please feel free to show your support and buy me a :beers:. 

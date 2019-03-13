@@ -1,5 +1,13 @@
 # Simple Sharing Changelog
 
+## 1.0.4 - 2019-03-14
+
+### Updated
+- Updated links in varies files.
+
+### Fixed
+- Resolves bug `HeadersAlreadySentException` reported by @jurriaanr due to Yii handling of output in controllers.
+
 ## 1.0.3 - 2019-03-01
 
 ### Updated
