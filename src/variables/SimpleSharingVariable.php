@@ -40,7 +40,7 @@ class SimpleSharingVariable
                 return 'https://www.facebook.com/sharer/sharer.php?u='.$url;
                 break;
             case 'twitter':
-                return 'https://twitter.com/home?status='.$url;
+                return 'https://twitter.com/compose/tweet?url='.$url;
                 break;
             case 'google':
                 return 'https://plus.google.com/share?url='.$url;
