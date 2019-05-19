@@ -46,7 +46,7 @@ class DefaultController extends Controller
                 $btns = [];
                 $links = [
                     'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $entry->url . '">Facebook</a>',
-                    'twitter' => '<a target="_blank" href="https://twitter.com/home?status=' . $entry->url . '">Twitter</a>',
+                    'twitter' => '<a target="_blank" href="https://twitter.com/compose/tweet?url=' . $entry->url . '">Twitter</a>',
                     'linkedin' => '<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&title=' . $entry->url . '&summary=&source=&url=' . $entry->url . '">LinkedIn</a>',
                     'google' => '<a target="_blank" href="https://plus.google.com/share?url=' . $entry->url . '">Google</a>',
                 ];
