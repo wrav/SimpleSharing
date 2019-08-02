@@ -120,8 +120,11 @@ class SimpleSharing extends Plugin
         $optionsPlatforms = [
             'facebook' => 'Facebook',
             'twitter' => 'Twitter',
-            'google' => 'Google',
             'linkedin' => 'LinkedIn',
+            'pinterest' => 'Pinterest',
+            'stumbleUpon' => 'StumbleUpon',
+            'tumblr' => 'Tumblr',
+            'reddit' => 'Reddit',
         ];
 
         return Craft::$app->view->renderTemplate(

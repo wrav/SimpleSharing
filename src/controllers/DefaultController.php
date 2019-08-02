@@ -42,13 +42,18 @@ class DefaultController extends Controller
             /** @var Entry|null $entry */
             $entry = Craft::$app->getEntries()->getEntryById($data['id']);
 
-            if (null !== $entry) {
+            if (null !== $entry && $entry->url) {
                 $btns = [];
+                $encodedUrl = urlEncode($entry->url);
+
                 $links = [
-                    'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $entry->url . '">Facebook</a>',
-                    'twitter' => '<a target="_blank" href="https://twitter.com/home?status=' . $entry->url . '">Twitter</a>',
-                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&title=' . $entry->url . '&summary=&source=&url=' . $entry->url . '">LinkedIn</a>',
-                    'google' => '<a target="_blank" href="https://plus.google.com/share?url=' . $entry->url . '">Google</a>',
+                    'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl . '">Facebook</a>',
+                    'twitter' => '<a target="_blank" href="https://twitter.com/home?status=' . $encodedUrl . '">Twitter</a>',
+                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&title=' . $encodedUrl . '&summary=&source=&url=' . $encodedUrl . '">LinkedIn</a>',
+                    'pinterest' => '<a target="_blank" href="https://www.pinterest.com/pin/create/link/?' . $encodedUrl . '">Pinterest</a>',
+                    'stumbleupon' => '<a target="_blank" href="https://www.stumbleupon.com/submit/?' . $encodedUrl . '">StumbleUpon</a>',
+                    'tumblr' => '<a target="_blank" href="https://www.tumblr.com/share/link?' . $encodedUrl . '">Tumblr</a>',
+                    'reddit' => '<a target="_blank" href="http://www.reddit.com/submit?url=' . $encodedUrl . '">Reddit</a>',
                 ];
 
                 foreach ($links as $key => $link) {
