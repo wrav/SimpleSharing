@@ -47,16 +47,16 @@ class SimpleSharingVariable
                 return 'https://www.facebook.com/sharer/sharer.php?u='.$encodedUrl;
                 break;
             case 'twitter':
-                return 'https://twitter.com/home?status='.$encodedUrl;
+                return 'https://twitter.com/intent/tweet?text='.$encodedUrl;
                 break;
             case 'linkedin':
                 return 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url='.$encodedUrl;
                 break;
-            case 'pinterest':
-                return 'https://www.pinterest.com/pin/create/link/?'.$encodedUrl;
-                break;
-            case 'stumbleupon':
-                return 'https://www.stumbleupon.com/submit/?'.$encodedUrl;
+//            case 'pinterest':
+//                return 'https://www.pinterest.com/pin/create/link/?'.$encodedUrl;
+//                break;
+            case 'mix':
+                return 'https://mix.com/add?url='.$encodedUrl;
                 break;
 			case 'tumblr':
 				return 'https://www.tumblr.com/share/link?'.$encodedUrl;

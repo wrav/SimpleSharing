@@ -121,8 +121,8 @@ class SimpleSharing extends Plugin
             'facebook' => 'Facebook',
             'twitter' => 'Twitter',
             'linkedin' => 'LinkedIn',
-            'pinterest' => 'Pinterest',
-            'stumbleUpon' => 'StumbleUpon',
+//            'pinterest' => 'Pinterest',
+            'mix' => 'Mix',
             'tumblr' => 'Tumblr',
             'reddit' => 'Reddit',
         ];
