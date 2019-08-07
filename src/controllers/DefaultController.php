@@ -42,9 +42,10 @@ class DefaultController extends Controller
             /** @var Entry|null $entry */
             $entry = Craft::$app->getEntries()->getEntryById($data['id']);
 
-            if (null !== $entry && $entry->url) {
+            if (null !== $entry && trim((string)$entry->url)) {
+
                 $btns = [];
-                $encodedUrl = urlEncode($entry->url);
+                $encodedUrl = urlencode(trim($entry->url));
 
                 $links = [
                     'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl . '">Facebook</a>',

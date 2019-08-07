@@ -35,6 +35,11 @@ class SimpleSharingVariable
      */
     public function link($url, $service)
     {
+
+    	if(!trim($url)) {
+    		return null;
+		}
+
         $encodedUrl = urlencode($url);
 
         switch ($service) {
