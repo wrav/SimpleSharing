@@ -1,5 +1,16 @@
 # Simple Sharing Changelog
 
+## 1.0.5 - 2019-08-13
+
+### Fixed
+- Resolved broken twitter link.
+    
+### Updated
+- Removed Google Plus
+
+### Added
+- Support for new links including Mix (prev StumbleUpon), Tumblr and Reddit.
+
 ## 1.0.4 - 2019-03-14
 
 ### Updated

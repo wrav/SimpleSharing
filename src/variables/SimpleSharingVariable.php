@@ -47,7 +47,7 @@ class SimpleSharingVariable
                 return 'https://www.facebook.com/sharer/sharer.php?u='.$encodedUrl;
                 break;
             case 'twitter':
-                return 'https://twitter.com/intent/tweet?text='.$encodedUrl;
+                    return 'https://twitter.com/intent/tweet?text='.$encodedUrl;
                 break;
             case 'linkedin':
                 return 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url='.$encodedUrl;
@@ -59,7 +59,7 @@ class SimpleSharingVariable
                 return 'https://mix.com/add?url='.$encodedUrl;
                 break;
 			case 'tumblr':
-				return 'https://www.tumblr.com/share/link?'.$encodedUrl;
+				return 'https://www.tumblr.com/share/link?url='.$encodedUrl;
 				break;
 			case 'reddit':
 				return 'http://www.reddit.com/submit?url='.$encodedUrl;
