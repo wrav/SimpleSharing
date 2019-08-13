@@ -34,7 +34,9 @@ Your able to generate share links on the fly in a template as followed.
 {{ craft.simpleSharing.link(url, 'facebook') }}
 {{ craft.simpleSharing.link(url, 'twitter') }}
 {{ craft.simpleSharing.link(url, 'linkedin') }}
-{{ craft.simpleSharing.link(url, 'google') }}
+{{ craft.simpleSharing.link(url, 'mix') }}
+{{ craft.simpleSharing.link(url, 'tumblr') }}
+{{ craft.simpleSharing.link(url, 'reddit') }}
 ```
 
 ## Credits
