@@ -35,19 +35,35 @@ class SimpleSharingVariable
      */
     public function link($url, $service)
     {
+
+    	if(!trim($url)) {
+    		return null;
+		}
+
+        $encodedUrl = urlencode($url);
+
         switch ($service) {
             case 'facebook':
-                return 'https://www.facebook.com/sharer/sharer.php?u='.$url;
+                return 'https://www.facebook.com/sharer/sharer.php?u='.$encodedUrl;
                 break;
             case 'twitter':
-                return 'https://twitter.com/home?status='.$url;
-                break;
-            case 'google':
-                return 'https://plus.google.com/share?url='.$url;
+                return 'https://twitter.com/intent/tweet?text='.$encodedUrl;
                 break;
             case 'linkedin':
-                return 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url='.$url;
+                return 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url='.$encodedUrl;
                 break;
+//            case 'pinterest':
+//                return 'https://www.pinterest.com/pin/create/link/?'.$encodedUrl;
+//                break;
+            case 'mix':
+                return 'https://mix.com/add?url='.$encodedUrl;
+                break;
+			case 'tumblr':
+				return 'https://www.tumblr.com/share/link?'.$encodedUrl;
+				break;
+			case 'reddit':
+				return 'http://www.reddit.com/submit?url='.$encodedUrl;
+				break;
             default:
                 return null;
         }
