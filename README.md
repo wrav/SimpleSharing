@@ -47,11 +47,10 @@ Original built while at working at [HutSix](https://hutsix.com.au/) I've since b
 
 Changes can be viewed [here](https://github.com/wrav/SimpleSharing/blob/master/CHANGELOG.md)
 
+## Become a Contributor
+
+Open-source projects like this one are looking for your help. Feel free to submit a PR or tackle an issue.
+
 ## Support
 
 Get in touch via email or by [creating a Github issue](/wrav/SimpleSharing/issues)
-
-## Show your Support
-This is licensed under the MIT license meaning it will always be free. If you like the plugin, please feel free to show your support and buy me a :beers:. 
-
-[![Beerpay](https://beerpay.io/wrav/SimpleSharing/badge.svg)](https://beerpay.io/wrav/SimpleSharing)
