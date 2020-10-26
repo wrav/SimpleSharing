@@ -66,7 +66,7 @@ class DefaultController extends Controller
                 return Craft::$app->view->renderString(
                     '{{ btns|raw }}',
                     [
-                        'btns' => implode($btns, ' | '),
+                        'btns' => implode( ' | ', $btns),
                     ]
                 );
             }
