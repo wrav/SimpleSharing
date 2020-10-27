@@ -1,5 +1,10 @@
 # Simple Sharing Changelog
 
+## 1.0.7 - 2020-10-28
+
+### Updated
+- Fix Composer 2 error
+    
 ## 1.0.6 - 2020-09-02
 
 ### Updated
