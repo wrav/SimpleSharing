@@ -66,7 +66,7 @@ class DefaultController extends Controller
                 return Craft::$app->view->renderString(
                     '{{ btns|raw }}',
                     [
-                        'btns' => floatval(phpversion()) >= 7.4 ? implode( ' | ', $btns) : implode($btns, ' | '),
+                        'btns' => implode( ' | ', $btns),
                     ]
                 );
             }
