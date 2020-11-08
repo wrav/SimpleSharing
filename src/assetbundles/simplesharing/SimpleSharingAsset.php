@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 reganlawton
  */
 
-namespace wrav\simplesharing\assetbundles\SimpleSharing;
+namespace wrav\simplesharing\assetbundles\simplesharing;
 
 use Craft;
 use craft\web\AssetBundle;

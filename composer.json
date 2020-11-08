@@ -2,7 +2,7 @@
     "name": "wrav/simplesharing",
     "description": "Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.",
     "type": "craft-plugin",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "keywords": [
         "craft",
         "cms",

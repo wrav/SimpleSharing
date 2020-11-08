@@ -1,5 +1,16 @@
 # Simple Sharing Changelog
 
+## 1.0.8 - 2020-11-08
+
+### Updated
+- Fix bug from Composer 2 change
+- Fixed PHP 7.4 implode backward incompatible change
+
+## 1.0.7 - 2020-10-28
+
+### Updated
+- Fix Composer 2 error
+    
 ## 1.0.6 - 2020-09-02
 
 ### Updated
