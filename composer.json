@@ -31,7 +31,8 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0-beta.23"
+        "php": ">=8.0.0",
+        "craftcms/cms": "^4.0.0"
     },
     "repositories": [
         {
@@ -53,5 +54,11 @@
         "hasCpSection": false,
         "changelogUrl": "https://raw.githubusercontent.com/wrav/SimpleSharing/master/CHANGELOG.md",
         "class": "wrav\\simplesharing\\SimpleSharing"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
     }
 }

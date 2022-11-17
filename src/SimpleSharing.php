@@ -1,6 +1,6 @@
 <?php
 /**
- * SimpleSharing plugin for Craft CMS 3.x
+ * SimpleSharing plugin for Craft CMS 4.x
  *
  * Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.
  *
@@ -10,6 +10,7 @@
 
 namespace wrav\simplesharing;
 
+use craft\base\Model;
 use craft\web\View;
 use wrav\simplesharing\variables\SimpleSharingVariable;
 use wrav\simplesharing\models\Settings;
@@ -18,11 +19,10 @@ use Craft;
 use craft\base\Plugin;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
-use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
-use craft\events\RegisterUrlRulesEvent;
 
 use yii\base\Event;
+use yii\base\View as ViewAlias;
 
 /**
  * Class SimpleSharing
@@ -36,11 +36,7 @@ class SimpleSharing extends Plugin
 {
     // Static Properties
     // =========================================================================
-
-    /**
-     * @var SimpleSharing
-     */
-    public static $plugin;
+    public static SimpleSharing $plugin;
 
     // Public Methods
     // =========================================================================
@@ -64,21 +60,11 @@ class SimpleSharing extends Plugin
         );
 
         Event::on(
-            Plugins::class,
-            Plugins::EVENT_AFTER_INSTALL_PLUGIN,
-            function (PluginEvent $event) {
-                if ($event->plugin === $this) {
-                }
-            }
-        );
-
-        Event::on(
             View::class,
-            View::EVENT_END_PAGE,
-            function(Event $event) {
+            ViewAlias::EVENT_END_PAGE,
+            function() {
                 if (Craft::$app->getRequest()->getIsCpRequest()) {
                     $url = Craft::$app->assetManager->getPublishedUrl('@wrav/simplesharing/assetbundles/simplesharing/dist/js/SimpleSharing.js', true);
-
                     echo "<script src='$url'></script>";
                 }
             }
@@ -100,7 +86,7 @@ class SimpleSharing extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?Model
     {
         return new Settings();
     }
@@ -110,10 +96,10 @@ class SimpleSharing extends Plugin
      */
     protected function settingsHtml(): string
     {
-        $sections = Craft::$app->sections->getAllSections('id');
+        $sections = Craft::$app->sections->getAllSections();
         $optionsSections = [];
 
-        foreach ($sections as $id => $section) {
+        foreach ($sections as $section) {
             $optionsSections[$section->id] = $section->name;
         }
 
@@ -121,7 +107,7 @@ class SimpleSharing extends Plugin
             'facebook' => 'Facebook',
             'twitter' => 'Twitter',
             'linkedin' => 'LinkedIn',
-//            'pinterest' => 'Pinterest',
+            //'pinterest' => 'Pinterest',
             'mix' => 'Mix',
             'tumblr' => 'Tumblr',
             'reddit' => 'Reddit',
