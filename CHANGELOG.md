@@ -1,5 +1,9 @@
 # Simple Sharing Changelog
 
+## 2.0.0 - 2022-11-17
+### Updated
+- Craft4.x Support Added (^2.0.0 is not backward compatible with Craft3.x, use 1.x branch).
+
 ## 1.0.8 - 2020-11-08
 
 ### Updated

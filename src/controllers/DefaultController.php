@@ -55,7 +55,7 @@ class DefaultController extends Controller
                 $links = [
                     'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl . '">Facebook</a>',
                     'twitter' => '<a target="_blank" href="https://twitter.com/intent/tweet?text=' . $encodedUrl . '">Twitter</a>',
-                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/shareArticle?title=' . $encodedUrl . '&summary=&source=&url=' . $encodedUrl . '">LinkedIn</a>',
+                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=' . $encodedUrl . '">LinkedIn</a>',
                     //'pinterest' => '<a target="_blank" href="http://pinterest.com/pin/create/link/?media=aaa&url=' . $encodedUrl . '">Pinterest</a>',
                     'mix' => '<a target="_blank" href="https://mix.com/add?url=' . $encodedUrl . '">Mix</a>',
                     'tumblr' => '<a target="_blank" href="https://www.tumblr.com/share/link?' . $encodedUrl . '">Tumblr</a>',

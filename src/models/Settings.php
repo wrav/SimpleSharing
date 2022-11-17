@@ -21,6 +21,8 @@ class Settings extends Model
 {
     // Public Properties
     // =========================================================================
-    public string $allowedSections;
-    public string $allowedPlatforms;
+    /** @var string[] $allowedSections */
+    /** @var string[] $allowedPlatforms */
+    public array $allowedSections = [];
+    public array $allowedPlatforms = [];
 }
