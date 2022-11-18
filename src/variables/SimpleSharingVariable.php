@@ -1,6 +1,6 @@
 <?php
 /**
- * SimpleSharing plugin for Craft CMS 3.x
+ * SimpleSharing plugin for Craft CMS 4.x
  *
  * Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.
  *
@@ -9,10 +9,6 @@
  */
 
 namespace wrav\simplesharing\variables;
-
-use wrav\simplesharing;
-
-use Craft;
 
 /**
  * @author    reganlawton
@@ -31,9 +27,9 @@ class SimpleSharingVariable
      *
      * @param $url
      * @param $service
-     * @return string
+     * @return string|null
      */
-    public function link($url, $service)
+    public function link($url, $service): ?string
     {
 
     	if(!trim($url)) {
@@ -42,30 +38,14 @@ class SimpleSharingVariable
 
         $encodedUrl = urlencode($url);
 
-        switch ($service) {
-            case 'facebook':
-                return 'https://www.facebook.com/sharer/sharer.php?u='.$encodedUrl;
-                break;
-            case 'twitter':
-                    return 'https://twitter.com/intent/tweet?text='.$encodedUrl;
-                break;
-            case 'linkedin':
-                return 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url='.$encodedUrl;
-                break;
-//            case 'pinterest':
-//                return 'https://www.pinterest.com/pin/create/link/?'.$encodedUrl;
-//                break;
-            case 'mix':
-                return 'https://mix.com/add?url='.$encodedUrl;
-                break;
-			case 'tumblr':
-				return 'https://www.tumblr.com/share/link?url='.$encodedUrl;
-				break;
-			case 'reddit':
-				return 'http://www.reddit.com/submit?url='.$encodedUrl;
-				break;
-            default:
-                return null;
-        }
+        return match ($service) {
+            'facebook' => 'https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl,
+            'twitter' => 'https://twitter.com/intent/tweet?text=' . $encodedUrl,
+            'linkedin' => 'https://www.linkedin.com/shareArticle?mini=true&title=&summary=&source=&url=' . $encodedUrl,
+            'mix' => 'https://mix.com/add?url=' . $encodedUrl,
+            'tumblr' => 'https://www.tumblr.com/share/link?url=' . $encodedUrl,
+            'reddit' => 'http://www.reddit.com/submit?url=' . $encodedUrl,
+            default => null,
+        };
     }
 }

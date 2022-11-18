@@ -6,11 +6,12 @@ Simple Sharing is a CraftCMS plugin that generates social media share links with
 the Craft CP page, allowing you to quickly and easily share entries.
 
 ## Requirements
+Current Version: 2.0.0\
+This plugin requires Craft CMS ^4.0.0. 
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+If you are looking for CraftCMS 3.x support, use current project [Version 1.0.8](https://github.com/wrav/SimpleSharing/tree/1.0.8)
 
-If use are looking for CraftCMS 2.5 support use previous project [version 1.1.5](https://github.com/hut6/SimpleSharing/tree/1.1.5) 
-which is the latest release for CraftCMS 2.5.
+If you are looking for CraftCMS 2.5 support, use previous project [version 1.1.5](https://github.com/hut6/SimpleSharing/tree/1.1.5)
 
 ## Installing
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * SimpleSharing plugin for Craft CMS 3.x
+ * SimpleSharing plugin for Craft CMS 4.x
  *
  * Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.
  *
@@ -10,11 +10,12 @@
 
 namespace wrav\simplesharing\controllers;
 
-use craft\elements\Entry;
+use Twig\Error\LoaderError;
+use Twig\Error\SyntaxError;
 use wrav\simplesharing\SimpleSharing;
-
 use Craft;
 use craft\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * @author    reganlawton
@@ -26,32 +27,36 @@ class DefaultController extends Controller
 
     // Protected Properties
     // =========================================================================
-
-    protected $allowAnonymous = true;
+    protected array|bool|int $allowAnonymous = true;
 
     // Public Methods
     // =========================================================================
 
-    public function actionUrl()
+    /**
+     * @return string
+     * @throws NotFoundHttpException
+     * @throws LoaderError
+     * @throws SyntaxError
+     */
+    public function actionUrl(): string
     {
         $data = Craft::$app->request->getQueryParams();
         $allowedSections = SimpleSharing::getInstance()->getSettings()->allowedSections;
         $allowedPlatforms = SimpleSharing::getInstance()->getSettings()->allowedPlatforms;
 
         if (!$allowedSections || (is_array($allowedSections) && in_array($data['sectionId'], $allowedSections))) {
-            /** @var Entry|null $entry */
-            $entry = Craft::$app->getEntries()->getEntryById($data['id']);
 
-            if (null !== $entry && trim((string)$entry->url)) {
+            $entry = Craft::$app->getEntries()->getEntryById($data['id']);
+            if (null !== $entry && trim((string) $entry->url)) {
 
                 $btns = [];
-                $encodedUrl = urlencode(trim($entry->url));
+                $encodedUrl = urlencode(trim((string) $entry->url));
 
                 $links = [
                     'facebook' => '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' . $encodedUrl . '">Facebook</a>',
                     'twitter' => '<a target="_blank" href="https://twitter.com/intent/tweet?text=' . $encodedUrl . '">Twitter</a>',
-                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/shareArticle?title=' . $encodedUrl . '&summary=&source=&url=' . $encodedUrl . '">LinkedIn</a>',
-//                    'pinterest' => '<a target="_blank" href="http://pinterest.com/pin/create/link/?media=aaa&url=' . $encodedUrl . '">Pinterest</a>',
+                    'linkedin' => '<a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=' . $encodedUrl . '">LinkedIn</a>',
+                    //'pinterest' => '<a target="_blank" href="http://pinterest.com/pin/create/link/?media=aaa&url=' . $encodedUrl . '">Pinterest</a>',
                     'mix' => '<a target="_blank" href="https://mix.com/add?url=' . $encodedUrl . '">Mix</a>',
                     'tumblr' => '<a target="_blank" href="https://www.tumblr.com/share/link?' . $encodedUrl . '">Tumblr</a>',
                     'reddit' => '<a target="_blank" href="http://www.reddit.com/submit?url=' . $encodedUrl . '">Reddit</a>',
@@ -72,6 +77,6 @@ class DefaultController extends Controller
             }
         }
 
-        Craft::$app->end();
+        throw new NotFoundHttpException();
     }
 }

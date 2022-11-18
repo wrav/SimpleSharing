@@ -1,6 +1,6 @@
 <?php
 /**
- * SimpleSharing plugin for Craft CMS 3.x
+ * SimpleSharing plugin for Craft CMS 4.x
  *
  * Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.
  *
@@ -10,9 +10,6 @@
 
 namespace wrav\simplesharing\models;
 
-use wrav\simplesharing;
-
-use Craft;
 use craft\base\Model;
 
 /**
@@ -24,14 +21,8 @@ class Settings extends Model
 {
     // Public Properties
     // =========================================================================
-
-    /**
-     * @var string
-     */
-    public $allowedSections;
-    
-    /**
-     * @var string
-     */
-    public $allowedPlatforms;
+    /** @var string[] $allowedSections */
+    /** @var string[] $allowedPlatforms */
+    public array $allowedSections = [];
+    public array $allowedPlatforms = [];
 }
