@@ -62,10 +62,9 @@ jobs:
         raw_output=$(vendor/bin/codecept run unit --coverage-text --no-ansi 2>&1)
         
         # Extract just the coverage summary
-        summary=$(echo "$raw_output" | sed -n '/Summary:/,/^$/p' | head -4)
-        classes=$(echo "$summary" | grep "Classes:" | sed 's/.*Classes: //' | sed 's/ .*//')
-        methods=$(echo "$summary" | grep "Methods:" | sed 's/.*Methods: //' | sed 's/ .*//')
-        lines=$(echo "$summary" | grep "Lines:" | sed 's/.*Lines: //' | sed 's/ .*//')
+        classes=$(echo "$raw_output" | grep "Classes:" | sed 's/.*Classes: \([0-9.]*%\).*/\1/')
+        methods=$(echo "$raw_output" | grep "Methods:" | sed 's/.*Methods: \([0-9.]*%\).*/\1/')
+        lines=$(echo "$raw_output" | grep "Lines:" | sed 's/.*Lines: \([0-9.]*%\).*/\1/')
         
         # Get test results
         test_result=$(echo "$raw_output" | grep "OK (" || echo "Tests failed")
