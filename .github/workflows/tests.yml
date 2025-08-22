@@ -54,6 +54,15 @@ jobs:
         fail_ci_if_error: false
         verbose: true
     
+    - name: Generate coverage text report
+      if: github.event_name == 'pull_request' && matrix.php == '8.2'
+      id: coverage
+      run: |
+        coverage_output=$(vendor/bin/codecept run unit --coverage-text 2>&1 | grep -A 50 "Code Coverage Report" || echo "No coverage data available")
+        echo "coverage-text<<EOF" >> $GITHUB_OUTPUT
+        echo "$coverage_output" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
     - name: Comment PR with coverage
       uses: marocchino/sticky-pull-request-comment@v2
       if: github.event_name == 'pull_request' && matrix.php == '8.2'
@@ -65,7 +74,7 @@ jobs:
           Coverage report for PHP ${{ matrix.php }}:
           
           ```
-          $(vendor/bin/codecept run unit --coverage-text | grep -A 20 "Code Coverage Report")
+          ${{ steps.coverage.outputs.coverage-text }}
           ```
 
   # Craft 4.x tests (v2 branch) - PHP 8.0+
