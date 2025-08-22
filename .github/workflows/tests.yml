@@ -66,9 +66,9 @@ jobs:
         echo "$raw_output" | grep -E "(Classes|Methods|Lines):"
         
         # Extract coverage percentages more reliably
-        classes=$(echo "$raw_output" | grep "Classes:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
-        methods=$(echo "$raw_output" | grep "Methods:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
-        lines=$(echo "$raw_output" | grep "Lines:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
+        classes=$(echo "$raw_output" | grep "Classes:" | grep -o '[0-9]*\.[0-9]*%' | head -1 || echo "N/A")
+        methods=$(echo "$raw_output" | grep "Methods:" | grep -o '[0-9]*\.[0-9]*%' | head -1 || echo "N/A")
+        lines=$(echo "$raw_output" | grep "Lines:" | grep -o '[0-9]*\.[0-9]*%' | head -1 || echo "N/A")
         
         # Get test results
         test_result=$(echo "$raw_output" | grep "OK (" || echo "Tests failed")
