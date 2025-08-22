@@ -1,0 +1,21 @@
+namespace: SimpleSharing\Tests
+actor: Tester
+paths:
+  tests: tests
+  output: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+actor_suffix: Tester
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
+  config:
+    Codeception\Extension\RunFailed:
+      file: tests/_output/failed
+coverage:
+  enabled: true
+  include:
+    - src/*
+  exclude:
+    - src/assetbundles/*

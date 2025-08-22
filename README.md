@@ -6,12 +6,14 @@ Simple Sharing is a CraftCMS plugin that generates social media share links with
 the Craft CP page, allowing you to quickly and easily share entries.
 
 ## Requirements
-Current Version: 2.0.0\
-This plugin requires Craft CMS ^4.0.0. 
+Current Version: 3.0.0\
+This plugin requires Craft CMS ^5.0.0. 
 
-If you are looking for CraftCMS 3.x support, use current project [Version 1.0.8](https://github.com/wrav/SimpleSharing/tree/1.0.8)
+If you are looking for CraftCMS 4.x support, use [Version 2.1.0](https://github.com/wrav/SimpleSharing/tree/master)
 
-If you are looking for CraftCMS 2.5 support, use previous project [version 1.1.5](https://github.com/hut6/SimpleSharing/tree/1.1.5)
+If you are looking for CraftCMS 3.x support, use [Version 1.0.8](https://github.com/wrav/SimpleSharing/tree/1.0.8)
+
+If you are looking for CraftCMS 2.5 support, use [version 1.1.5](https://github.com/hut6/SimpleSharing/tree/1.1.5)
 
 ## Installing
 
@@ -39,6 +41,44 @@ Your able to generate share links on the fly in a template as followed.
 {{ craft.simpleSharing.link(url, 'tumblr') }}
 {{ craft.simpleSharing.link(url, 'reddit') }}
 ```
+
+## Testing
+
+The plugin includes a comprehensive test suite using Codeception for both unit and functional testing.
+
+### Running Tests
+
+```bash
+# Install dev dependencies
+composer install --dev
+
+# Run all tests
+vendor/bin/codecept run
+
+# Run only unit tests
+vendor/bin/codecept run unit
+
+# Run only functional tests
+vendor/bin/codecept run functional
+
+# Run with coverage report
+vendor/bin/codecept run --coverage
+```
+
+### Test Coverage
+
+- **Unit Tests**: URL generation, input validation, platform support
+- **Functional Tests**: Controller endpoints, Craft integration
+- **Template Tests**: Twig variable availability and output
+
+### Development Setup
+
+For plugin development:
+
+1. Clone the repository
+2. Run `composer install --dev`
+3. Configure your test environment in `tests/_craft/config/test.php`
+4. Run tests with `vendor/bin/codecept run`
 
 ## Credits
 
