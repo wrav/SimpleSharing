@@ -1,8 +1,8 @@
 <?php
 
-namespace SimpleSharing\Tests\Functional;
+namespace tests\functional;
 
-use SimpleSharing\Tests\FunctionalTester;
+use tests\FunctionalTester;
 
 class CraftIntegrationCest
 {

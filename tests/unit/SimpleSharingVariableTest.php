@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSharing\Tests\Unit;
+namespace tests\unit;
 
 use Codeception\Test\Unit;
 use wrav\simplesharing\variables\SimpleSharingVariable;

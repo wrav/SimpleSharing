@@ -7,5 +7,5 @@ actor: FunctionalTester
 modules:
   enabled:
     - Asserts
-    - \SimpleSharing\Tests\Helper\Functional
+    - \tests\Helper\Functional
   step_decorators: ~

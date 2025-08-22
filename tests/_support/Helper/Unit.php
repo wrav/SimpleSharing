@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSharing\Tests\Helper;
+namespace tests\Helper;
 
 use Codeception\Module;
 

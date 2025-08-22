@@ -1,4 +1,4 @@
-namespace: SimpleSharing\Tests
+namespace: tests
 actor: Tester
 paths:
   tests: tests

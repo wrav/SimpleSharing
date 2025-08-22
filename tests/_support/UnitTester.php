@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSharing\Tests;
+namespace tests;
 
 use Codeception\Actor;
 use Codeception\Lib\Friend;

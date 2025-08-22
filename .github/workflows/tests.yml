@@ -53,6 +53,20 @@ jobs:
         files: ./tests/_output/coverage.xml
         fail_ci_if_error: false
         verbose: true
+    
+    - name: Comment PR with coverage
+      uses: marocchino/sticky-pull-request-comment@v2
+      if: github.event_name == 'pull_request' && matrix.php == '8.2'
+      with:
+        recreate: true
+        message: |
+          ## 📊 Test Coverage Report
+          
+          Coverage report for PHP ${{ matrix.php }}:
+          
+          ```
+          $(vendor/bin/codecept run unit --coverage-text | grep -A 20 "Code Coverage Report")
+          ```
 
   # Craft 4.x tests (v2 branch) - PHP 8.0+
   craft4-tests:
