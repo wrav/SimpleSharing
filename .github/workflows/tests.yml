@@ -58,10 +58,22 @@ jobs:
       if: github.event_name == 'pull_request' && matrix.php == '8.2'
       id: coverage
       run: |
-        coverage_output=$(vendor/bin/codecept run unit --coverage-text 2>&1 | grep -A 50 "Code Coverage Report" || echo "No coverage data available")
-        echo "coverage-text<<EOF" >> $GITHUB_OUTPUT
-        echo "$coverage_output" >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
+        # Run coverage and strip ANSI color codes
+        raw_output=$(vendor/bin/codecept run unit --coverage-text --no-ansi 2>&1)
+        
+        # Extract just the coverage summary
+        summary=$(echo "$raw_output" | sed -n '/Summary:/,/^$/p' | head -4)
+        classes=$(echo "$summary" | grep "Classes:" | sed 's/.*Classes: //' | sed 's/ .*//')
+        methods=$(echo "$summary" | grep "Methods:" | sed 's/.*Methods: //' | sed 's/ .*//')
+        lines=$(echo "$summary" | grep "Lines:" | sed 's/.*Lines: //' | sed 's/ .*//')
+        
+        # Get test results
+        test_result=$(echo "$raw_output" | grep "OK (" || echo "Tests failed")
+        
+        echo "classes=$classes" >> $GITHUB_OUTPUT
+        echo "methods=$methods" >> $GITHUB_OUTPUT
+        echo "lines=$lines" >> $GITHUB_OUTPUT
+        echo "test-result=$test_result" >> $GITHUB_OUTPUT
         
     - name: Comment PR with coverage
       uses: marocchino/sticky-pull-request-comment@v2
@@ -69,13 +81,15 @@ jobs:
       with:
         recreate: true
         message: |
-          ## 📊 Test Coverage Report
+          ## 📊 Test Coverage Report (PHP ${{ matrix.php }})
           
-          Coverage report for PHP ${{ matrix.php }}:
+          | Metric | Coverage |
+          |--------|----------|
+          | **Classes** | `${{ steps.coverage.outputs.classes }}` |
+          | **Methods** | `${{ steps.coverage.outputs.methods }}` |
+          | **Lines** | `${{ steps.coverage.outputs.lines }}` |
           
-          ```
-          ${{ steps.coverage.outputs.coverage-text }}
-          ```
+          **Test Results:** ${{ steps.coverage.outputs.test-result }}
 
   # Craft 4.x tests (v2 branch) - PHP 8.0+
   craft4-tests:
