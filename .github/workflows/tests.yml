@@ -61,21 +61,23 @@ jobs:
         # Run coverage and strip ANSI color codes
         raw_output=$(vendor/bin/codecept run unit --coverage-text --no-ansi 2>&1)
         
-        # Extract just the coverage summary with simpler approach
-        classes=$(echo "$raw_output" | grep "Classes:" | cut -d' ' -f3)
-        methods=$(echo "$raw_output" | grep "Methods:" | cut -d' ' -f3)
-        lines=$(echo "$raw_output" | grep "Lines:" | cut -d' ' -f3)
+        # Debug: show the actual lines
+        echo "Raw coverage lines:"
+        echo "$raw_output" | grep -E "(Classes|Methods|Lines):"
+        
+        # Extract coverage percentages more reliably
+        classes=$(echo "$raw_output" | grep "Classes:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
+        methods=$(echo "$raw_output" | grep "Methods:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
+        lines=$(echo "$raw_output" | grep "Lines:" | grep -o '[0-9]*\.[0-9]*%' | head -1)
         
         # Get test results
         test_result=$(echo "$raw_output" | grep "OK (" || echo "Tests failed")
         
-        # Use simple variable assignment to avoid special characters
-        {
-          echo "classes=${classes}"
-          echo "methods=${methods}"
-          echo "lines=${lines}"
-          echo "test-result=${test_result}"
-        } >> "$GITHUB_OUTPUT"
+        # Use simple variable assignment
+        echo "classes=${classes:-N/A}" >> "$GITHUB_OUTPUT"
+        echo "methods=${methods:-N/A}" >> "$GITHUB_OUTPUT"
+        echo "lines=${lines:-N/A}" >> "$GITHUB_OUTPUT"
+        echo "test-result=${test_result:-Tests failed}" >> "$GITHUB_OUTPUT"
         
     - name: Comment PR with coverage
       uses: marocchino/sticky-pull-request-comment@v2
