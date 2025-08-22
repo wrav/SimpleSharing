@@ -61,18 +61,21 @@ jobs:
         # Run coverage and strip ANSI color codes
         raw_output=$(vendor/bin/codecept run unit --coverage-text --no-ansi 2>&1)
         
-        # Extract just the coverage summary
-        classes=$(echo "$raw_output" | grep "Classes:" | sed 's/.*Classes: \([0-9.%]*\).*/\1/')
-        methods=$(echo "$raw_output" | grep "Methods:" | sed 's/.*Methods: \([0-9.%]*\).*/\1/')
-        lines=$(echo "$raw_output" | grep "Lines:" | sed 's/.*Lines: \([0-9.%]*\).*/\1/')
+        # Extract just the coverage summary with simpler approach
+        classes=$(echo "$raw_output" | grep "Classes:" | cut -d' ' -f3)
+        methods=$(echo "$raw_output" | grep "Methods:" | cut -d' ' -f3)
+        lines=$(echo "$raw_output" | grep "Lines:" | cut -d' ' -f3)
         
         # Get test results
         test_result=$(echo "$raw_output" | grep "OK (" || echo "Tests failed")
         
-        echo "classes=$classes" >> $GITHUB_OUTPUT
-        echo "methods=$methods" >> $GITHUB_OUTPUT
-        echo "lines=$lines" >> $GITHUB_OUTPUT
-        echo "test-result=$test_result" >> $GITHUB_OUTPUT
+        # Use simple variable assignment to avoid special characters
+        {
+          echo "classes=${classes}"
+          echo "methods=${methods}"
+          echo "lines=${lines}"
+          echo "test-result=${test_result}"
+        } >> "$GITHUB_OUTPUT"
         
     - name: Comment PR with coverage
       uses: marocchino/sticky-pull-request-comment@v2
