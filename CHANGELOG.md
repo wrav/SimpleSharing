@@ -1,10 +1,13 @@
 # Simple Sharing Changelog
 
-## 3.0.0 - 2024-XX-XX
+## 3.0.0 - 2026-01-14
 ### Updated
 - Craft5.x Support Added (^3.0.0 is not backward compatible with Craft4.x, use 2.x branch).
 - Fixed LinkedIn sharing URL to use correct endpoint
 - Updated Tumblr sharing URL format
+
+# Added
+- Added support for functional, integration and unit testing
 
 ## 2.0.0 - 2022-11-17
 ### Updated
