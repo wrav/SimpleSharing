@@ -1,0 +1,11 @@
+# Codeception Test Suite Configuration
+#
+# Suite for functional tests
+# Note: Craft module disabled for now - requires full Craft setup
+
+actor: FunctionalTester
+modules:
+  enabled:
+    - Asserts
+    - \tests\Helper\Functional
+  step_decorators: ~

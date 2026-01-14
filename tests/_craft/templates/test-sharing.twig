@@ -1,0 +1,12 @@
+{% set testUrl = 'https://example.com/test' %}
+
+{# Test all sharing platforms #}
+Facebook: {{ craft.simpleSharing.link(testUrl, 'facebook') }}
+Twitter: {{ craft.simpleSharing.link(testUrl, 'twitter') }}
+LinkedIn: {{ craft.simpleSharing.link(testUrl, 'linkedin') }}
+Mix: {{ craft.simpleSharing.link(testUrl, 'mix') }}
+Tumblr: {{ craft.simpleSharing.link(testUrl, 'tumblr') }}
+Reddit: {{ craft.simpleSharing.link(testUrl, 'reddit') }}
+
+{# Test invalid platform #}
+Invalid: {{ craft.simpleSharing.link(testUrl, 'invalid') ?? 'NULL' }}

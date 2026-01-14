@@ -1,6 +1,6 @@
 <?php
 /**
- * SimpleSharing plugin for Craft CMS 4.x
+ * SimpleSharing plugin for Craft CMS 5.x
  *
  * Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.
  *
@@ -96,7 +96,7 @@ class SimpleSharing extends Plugin
      */
     protected function settingsHtml(): string
     {
-        $sections = Craft::$app->sections->getAllSections();
+        $sections = Craft::$app->entries->getAllSections();
         $optionsSections = [];
 
         foreach ($sections as $section) {

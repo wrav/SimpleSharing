@@ -2,7 +2,7 @@
     "name": "wrav/simplesharing",
     "description": "Simple Sharing generates social media share links within CP entry pages, allowing you to quickly & easily share entries.",
     "type": "craft-plugin",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -31,8 +31,9 @@
         }
     ],
     "require": {
-        "php": ">=8.0.0",
-        "craftcms/cms": "^4.0.0"
+        "php": "^8.2",
+        "craftcms/cms": "^5.0.0",
+        "vlucas/phpdotenv": "^5.6"
     },
     "repositories": [
         {
@@ -56,9 +57,18 @@
         "class": "wrav\\simplesharing\\SimpleSharing"
     },
     "config": {
+        "platform": {
+            "php": "8.2"
+        },
         "allow-plugins": {
             "yiisoft/yii2-composer": true,
             "craftcms/plugin-installer": true
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.4",
+        "codeception/module-yii2": "^1.1",
+        "codeception/module-phpbrowser": "^3.0",
+        "codeception/module-asserts": "^3.0"
     }
 }

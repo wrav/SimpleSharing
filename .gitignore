@@ -5,6 +5,7 @@
 
 # COMPOSER
 /vendor
+composer.lock
 
 # BUILD FILES
 /bower_components/*
@@ -30,3 +31,4 @@
 !.vscode/extensions.json
 config.codekit3
 prepros-6.config
+

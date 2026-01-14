@@ -1,0 +1,34 @@
+namespace: tests
+actor: Tester
+paths:
+  tests: tests
+  output: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+bootstrap: _bootstrap.php
+params:
+  - tests/.env
+modules:
+  enabled:
+    - \craft\test\Craft
+  config:
+    \craft\test\Craft:
+      configFile: "tests/_craft/config/test.php"
+      entryUrl: "https://localhost/index.php"
+      projectConfig: {}
+      migrations: []
+      plugins:
+        simple-sharing:
+          class: '\wrav\simplesharing\SimpleSharing'
+          handle: simple-sharing
+      cleanup: true
+      transaction: true
+      dbSetup: { clean: true, setupCraft: true }
+coverage:
+  enabled: true
+  include:
+    - src/*
+  exclude:
+    - tests/*
+    - src/assetbundles/*
