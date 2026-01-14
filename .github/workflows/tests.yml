@@ -59,6 +59,12 @@ jobs:
       run: |
         cp tests/.env.example tests/.env
         sed -i 's/host=postgres/host=localhost/' tests/.env
+        mkdir -p tests/_craft/storage/runtime
+        mkdir -p tests/_craft/storage/logs
+        mkdir -p tests/_craft/storage/config-deltas
+        mkdir -p tests/_craft/migrations
+        mkdir -p tests/_craft/translations
+        mkdir -p tests/_output
 
     - name: Build Codeception
       run: vendor/bin/codecept build
