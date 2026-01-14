@@ -6,14 +6,16 @@ Simple Sharing is a CraftCMS plugin that generates social media share links with
 the Craft CP page, allowing you to quickly and easily share entries.
 
 ## Requirements
-Current Version: 3.0.0
-This plugin requires Craft CMS ^5.0.0. 
 
-If you are looking for CraftCMS 4.x support, use [Version 2.1.0](https://github.com/wrav/SimpleSharing/tree/master)
+| Version | Craft CMS | PHP |
+|---------|-----------|-----|
+| ^3.0.0 | ^5.0.0 | ^8.2 |
+| ^2.0.0 | ^4.0.0 | ^8.0.2 |
+| ^1.0.0 | ^3.0.0 | ^7.2.5 |
+
+If you are looking for CraftCMS 4.x support, use [Version 2.x](https://github.com/wrav/SimpleSharing/tree/v2)
 
 If you are looking for CraftCMS 3.x support, use [Version 1.0.8](https://github.com/wrav/SimpleSharing/tree/1.0.8)
-
-If you are looking for CraftCMS 2.5 support, use [version 1.1.5](https://github.com/hut6/SimpleSharing/tree/1.1.5)
 
 ## Installing
 
@@ -44,25 +46,29 @@ Your able to generate share links on the fly in a template as followed.
 
 ## Testing
 
-The plugin includes a comprehensive test suite using Codeception for both unit and functional testing.
+The plugin includes a comprehensive test suite using Codeception with unit, integration, and functional tests.
 
 ### Running Tests
 
+Tests require Docker with PostgreSQL:
+
 ```bash
-# Install dev dependencies
-composer install --dev
+# Setup test environment
+cp tests/.env.example tests/.env
+
+# Start Docker containers
+docker compose up -d
+
+# Access app container
+docker exec -it app sh
 
 # Run all tests
 vendor/bin/codecept run
 
-# Run only unit tests
+# Run specific suites
 vendor/bin/codecept run unit
-
-# Run only functional tests
-vendor/bin/codecept run functional
-
-# Run integartion tests
 vendor/bin/codecept run integration
+vendor/bin/codecept run functional
 
 # Run with coverage report
 vendor/bin/codecept run --coverage
@@ -71,17 +77,8 @@ vendor/bin/codecept run --coverage
 ### Test Coverage
 
 - **Unit Tests**: URL generation, input validation, platform support
-- **Functional Tests**: Controller endpoints, Craft integration
-- **Template Tests**: Twig variable availability and output
-
-### Development Setup
-
-For plugin development:
-
-1. Clone the repository
-2. Run `composer install --dev`
-3. Configure your test environment in `tests/_craft/config/test.php`
-4. Run tests with `vendor/bin/codecept run`
+- **Integration Tests**: Plugin installation, settings rendering, Craft integration
+- **Functional Tests**: Template variable availability
 
 ## Credits
 
