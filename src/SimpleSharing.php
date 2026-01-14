@@ -96,7 +96,7 @@ class SimpleSharing extends Plugin
      */
     protected function settingsHtml(): string
     {
-        $sections = Craft::$app->entries->getAllSections();
+        $sections = Craft::$app->sections->getAllSections();
         $optionsSections = [];
 
         foreach ($sections as $section) {
