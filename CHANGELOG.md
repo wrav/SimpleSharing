@@ -1,5 +1,9 @@
 # Simple Sharing Changelog
 
+## 3.0.1 - 2026-03-12
+### Fixed
+- Fixed Craft5.x compatibility issue due to HTML DOM changes, thanks to @moondawg69
+
 ## 3.0.0 - 2026-01-14
 ### Updated
 - Craft5.x Support Added (^3.0.0 is not backward compatible with Craft4.x, use 2.x branch).

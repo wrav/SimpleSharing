@@ -12,19 +12,19 @@
 
 if(window.Craft)
 
-var id = $("input[name='entryId'],input[name='sourceId']").val();
+    var id = $("input[name='entryId'],input[name='sourceId'],input[name='elementId']").val();
 var sectionId = $("input[name='sectionId']").val();
 
 if (id != null) {
     $.ajax({
         type: "GET",
-        url: "/actions/simple-sharing/default/url?id=" + id + "&sectionId=" + sectionId,
+        url: "/actions/simple-sharing/default/url?id=" + id + "&sectionId=" + (sectionId || ''),
         async: true
     }).done(function (res) {
         if (res) {
             $('#simple-sharing').remove();
 
-            $("#settings").append(
+            $("#settings, #details").append(
                 '<div id="simple-sharing" class="field" style="margin-top: 50px">' +
                 '<div class="heading">' +
                 '<label>Share Entry</label>' +
@@ -36,6 +36,4 @@ if (id != null) {
             );
         }
     });
-
-
 }
