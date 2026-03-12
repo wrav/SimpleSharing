@@ -43,10 +43,24 @@ class DefaultController extends Controller
         $data = Craft::$app->request->getQueryParams();
         $allowedSections = SimpleSharing::getInstance()->getSettings()->allowedSections;
         $allowedPlatforms = SimpleSharing::getInstance()->getSettings()->allowedPlatforms;
+        $entryId = $data['id'] ?? null;
+        $sectionId = $data['sectionId'] ?? null;
 
-        if (!$allowedSections || (is_array($allowedSections) && in_array($data['sectionId'], $allowedSections))) {
+        if (empty($entryId)) {
+            throw new NotFoundHttpException();
+        }
 
-            $entry = Craft::$app->getEntries()->getEntryById($data['id']);
+        // If sectionId get the section from the entry
+        if (empty($sectionId) && !empty($entryId)) {
+            $entry = Craft::$app->getEntries()->getEntryById($entryId);
+            if ($entry) {
+                $sectionId = $entry->sectionId;
+            }
+        }
+
+        if (!$allowedSections || (is_array($allowedSections) && in_array($sectionId, $allowedSections))) {
+
+            $entry = Craft::$app->getEntries()->getEntryById($entryId);
             if (null !== $entry && trim((string) $entry->url)) {
 
                 $btns = [];
